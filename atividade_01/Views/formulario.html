@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Filme</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+
+        header {
+            background-color: red;
+            padding: 20px;
+        }
+
+        form {
+            background-color: #111;
+            width: 40%;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px red;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>📝 Cadastrar Filme</h1>
+</header>
+
+<form>
+    <label>Título:</label>
+    <input type="text" name="titulo" required>
+
+    <label>Duração:</label>
+    <input type="text" name="duracao" required>
+
+    <label>Gênero:</label>
+    <input type="text" name="genero" required>
+
+    <button type="submit">Cadastrar</button>
+</form>
+
+</body>
+</html>
