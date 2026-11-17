@@ -1,0 +1,31 @@
+    <!--IMPORTANDO O TEMPLATE BASE-->
+    {% extends 'base.html'%}
+
+    {% block content %}
+   
+
+    <main>
+   <h1>JOGOS EM DESTAQUE</h1>
+    <hr>
+
+    <ul>
+        <li>Título: {{ titulo }}</li>
+        <li>Ano: {{ ano }}</li>
+        <li>Categoria: {{ categoria }}</li>
+    </ul>
+
+    <P>O jogo {{titulo}} tem {{2026 - ano}} ano. </P>
+    <h3>Top Players - Ranking</h3>
+
+    <ol>
+    {% for jogador in jogadores %}
+    <li>{{jogador}}</li>
+    {% endfor%}
+
+    </ol>
+
+    <p><a href="/">VOLTAR</a></p>
+    
+    </main> 
+
+    {% endblock content %}

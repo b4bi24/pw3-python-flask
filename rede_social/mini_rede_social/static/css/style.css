@@ -1,0 +1,19 @@
+:root { --navy: #152d63; --purple: #8971d3; --pale: #eef2f7; }
+body { background: var(--pale); color: #202638; min-height: 100vh; }
+.navbar { background: var(--navy); box-shadow: 0 3px 14px #152d6322; }
+.navbar-brand { letter-spacing: -.5px; font-size: 1.45rem; }
+.navbar-brand span { color: #b9a9ff; }
+.nav-link { opacity: .92; }
+.btn-primary { background: var(--navy); border-color: var(--navy); }
+.btn-primary:hover { background: #203e80; border-color: #203e80; }
+a { color: var(--purple); }
+.auth-card, .chat-card { max-width: 480px; margin: 3rem auto; background: white; padding: 2rem; border-radius: 18px; box-shadow: 0 10px 35px #152d6310; }
+.logo-mark { width: 54px; height: 54px; border-radius: 16px; background: var(--navy); color: white; display: grid; place-items: center; font-size: 1.7rem; font-weight: 800; margin: 0 auto 1rem; }
+.post-card { border: 0; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 24px #152d630d; }
+.post-image { width: 100%; max-height: 620px; object-fit: contain; background: #f7f8fb; }
+.empty-state { background: white; border-radius: 16px; padding: 3rem 1rem; text-align: center; }
+.chat-card { max-width: 760px; margin-top: 1rem; }
+.messages { height: 420px; overflow-y: auto; background: #f7f8fc; border: 1px solid #e7eaf2; border-radius: 12px; padding: 1rem; display: flex; flex-direction: column; gap: .7rem; }
+.message { align-self: flex-start; max-width: 90%; background: white; padding: .7rem .9rem; border-radius: 12px; box-shadow: 0 2px 8px #152d630b; overflow-wrap: anywhere; }
+.system-message { align-self: center; color: #6b7280; font-size: .85rem; padding: .25rem .6rem; text-align: center; }
+@media (max-width: 575px) { .auth-card, .chat-card { margin: 1rem auto; padding: 1.25rem; } .navbar .container { flex-wrap: wrap; } }

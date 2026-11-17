@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Chat | Conecta{% endblock %}
+{% block content %}
+<div class="chat-card">
+  <div class="mb-3"><h1 class="h3 fw-bold mb-1">Chat coletivo</h1><p class="text-muted mb-0">Converse em tempo real com a comunidade.</p></div>
+  <div id="mensagens" class="messages" aria-live="polite"><div class="system-message">Conectando ao chat...</div></div>
+  <form id="form-chat" class="d-flex gap-2 mt-3">
+    <input id="mensagem" class="form-control" maxlength="500" placeholder="Digite sua mensagem..." autocomplete="off" required>
+    <button class="btn btn-primary" type="submit">Enviar</button>
+  </form>
+  <small class="text-muted d-block mt-2">Você está participando como {{ session.get('usuario_nome') }}.</small>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script>
+  const socket = io();
+  const lista = document.getElementById("mensagens");
+  const formulario = document.getElementById("form-chat");
+  const campo = document.getElementById("mensagem");
+
+  function adicionarMensagem(dados) {
+    const linha = document.createElement("div");
+    linha.className = dados.usuario === "Sistema" ? "system-message" : "message";
+    if (dados.usuario !== "Sistema") {
+      const autor = document.createElement("strong");
+      autor.textContent = dados.usuario + ": ";
+      linha.appendChild(autor);
+    }
+    const texto = document.createElement("span");
+    texto.textContent = dados.mensagem;
+    linha.appendChild(texto);
+    lista.appendChild(linha);
+    lista.scrollTop = lista.scrollHeight;
+  }
+
+  socket.on("connect", () => {
+    lista.innerHTML = "";
+    socket.emit("join");
+  });
+  socket.on("showmsg", adicionarMensagem);
+  socket.on("connect_error", () => {
+    lista.textContent = "Não foi possível conectar ao chat. Atualize a página.";
+  });
+  formulario.addEventListener("submit", (evento) => {
+    evento.preventDefault();
+    const mensagem = campo.value.trim();
+    if (!mensagem) return;
+    socket.emit("msg", { mensagem });
+    campo.value = "";
+    campo.focus();
+  });
+</script>
+{% endblock %}

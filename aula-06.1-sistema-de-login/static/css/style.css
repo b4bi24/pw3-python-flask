@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f6fa;
+    color: #212529;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #152d63 !important;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.nav-link {
+    margin-right: 8px;
+}
+
+.nav-link:hover {
+    color: #8971d3 !important;
+}
+
+main {
+    min-height: calc(100vh - 140px);
+}
+
+footer {
+    background-color: #152d63;
+    color: white;
+    text-align: center;
+    padding: 18px;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+}
+
+.card h2,
+.card h4,
+.card h5 {
+    color: #152d63;
+}
+
+.btn-primary {
+    background-color: #8971d3;
+    border-color: #8971d3;
+}
+
+.btn-primary:hover {
+    background-color: #725bbd;
+    border-color: #725bbd;
+}
+
+.btn-outline-primary {
+    color: #8971d3;
+    border-color: #8971d3;
+}
+
+.btn-outline-primary:hover {
+    background-color: #8971d3;
+    border-color: #8971d3;
+}
+
+.table thead {
+    background-color: #152d63;
+    color: white;
+}
+
+.table thead th {
+    font-weight: normal;
+}
+
+.badge {
+    padding: 7px 10px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #8971d3;
+    box-shadow: 0 0 0 0.2rem rgba(137, 113, 211, 0.2);
+}
+
+.login-body {
+    min-height: 100vh;
+    background-color: #f5f6fa;
+}
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-card {
+    width: 400px;
+    border-radius: 15px;
+}
+
+.login-card h1 {
+    color: #152d63;
+    font-weight: bold;
+}
+
+.dashboard-card {
+    min-height: 150px;
+}
+
+.dashboard-number {
+    font-size: 32px;
+    font-weight: bold;
+    color: #152d63;
+    margin-top: 15px;
+}
+
+.map-container {
+    height: 600px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.camera-card {
+    transition: 0.2s;
+}
+
+.camera-card:hover {
+    transform: translateY(-3px);
+}
+
+.alert-item {
+    border-left: 5px solid #8971d3;
+}
+
+.profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #ddd;
+    object-fit: cover;
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+
+    .navbar-text {
+        margin-bottom: 8px;
+    }
+
+    main {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .map-container {
+        height: 450px;
+    }
+}
+

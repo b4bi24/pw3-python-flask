@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container my-4" style="background-color: #f0f0f0; border-radius: 8px; padding: 20px;">
+    <div class="row">
+        <div class="col-md-6 m-auto">
+            <!-- Correção: Adicionadas aspas na rota e texto no botão de voltar -->
+            <a href="{{ url_for('apigames') }}" class="btn btn-dark">← Voltar para Lista</a> 
+            <br><br>
+            
+            <div class="card">
+                <!-- Correção: Adicionada classe Bootstrap para ajustar a imagem da capa -->
+                <img src="{{ jogoInfo.thumbnail }}" class="card-img-top" alt="{{ jogoInfo.title }}">
+                
+                <div class="card-body">
+                    <h3>{{ jogoInfo.title }}</h3>
+                    <br>
+                    <p><strong>Gênero:</strong> {{ jogoInfo.genre }}</p>
+                    <p><strong>Descrição:</strong> {{ jogoInfo.short_description }}</p>
+                    <p><strong>Plataforma:</strong> {{ jogoInfo.platform }}</p>
+                    <p><strong>Editora:</strong> {{ jogoInfo.publisher }}</p>
+                    <p><strong>Data de lançamento:</strong> {{ jogoInfo.release_date }}</p>
+
+                    <!-- Correção: Corrigida a classe errada 'bnt' para 'btn' do Bootstrap -->
+                    <a href="{{ jogoInfo.freetogame_profile_url }}" target="_blank" class="btn btn-danger w-100 mt-3">Jogue Agora!</a>
+                </div>
+            </div>
+        </div> <!-- Fechamento correto da col-md-6 -->
+    </div> <!-- Fechamento correto da row -->
+</div> <!-- Fechamento correto do container -->
+
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Feed | Conecta{% endblock %}
+{% block content %}
+<div class="row g-4">
+  <section class="col-lg-7 mx-auto">
+    <div class="d-flex align-items-center justify-content-between mb-3"><div><h1 class="h3 fw-bold mb-1">Feed da comunidade</h1><p class="text-muted mb-0">O que está acontecendo por aí?</p></div><span class="badge rounded-pill text-bg-light">{{ posts|length }} publicações</span></div>
+    <div class="card post-card mb-4">
+      <div class="card-body">
+        <h2 class="h5 fw-bold">Compartilhe um momento</h2>
+        <form action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+          <div class="mb-2"><input class="form-control" type="file" name="file" accept=".png,.jpg,.jpeg,.gif" required></div>
+          <div class="input-group"><input class="form-control" type="text" name="legenda" maxlength="255" placeholder="Escreva uma legenda..."><button class="btn btn-primary">Publicar</button></div>
+          <div class="form-text">Formatos aceitos: PNG, JPG, JPEG e GIF. Limite: 16 MB.</div>
+        </form>
+      </div>
+    </div>
+    {% for post in posts %}
+      <article class="card post-card mb-4">
+        <div class="card-body pb-2"><div class="fw-semibold">{{ post.autor.nome }}</div><small class="text-muted">{{ post.data_criacao.strftime('%d/%m/%Y às %H:%M') }}</small></div>
+        <img class="post-image" src="{{ url_for('static', filename='uploads/' ~ post.imagem) }}" alt="Imagem publicada por {{ post.autor.nome }}">
+        <div class="card-body"><p class="mb-0">{{ post.legenda or 'Sem legenda.' }}</p></div>
+      </article>
+    {% else %}
+      <div class="empty-state"><div class="display-5 mb-2">📷</div><h2 class="h5">Ainda não há publicações</h2><p class="text-muted mb-0">Seja a primeira pessoa a compartilhar uma foto!</p></div>
+    {% endfor %}
+  </section>
+</div>
+{% endblock %}
